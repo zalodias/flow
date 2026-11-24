@@ -2,23 +2,23 @@
 
 ## Event
 
-Something that happens at a time on the calendar. It can be recurring, and it can belong to a project.
+Something that happens at a set time.
 
 ## Item
 
-Something to do, which is either done or not done. Every item has a due day, and it can belong to a project. Items live on the Tasks tab, but in the model and the code they are items, never tasks.
+Something to do, which is either done or not done.
 
-## Due day
+## Due
 
-The day an item should be done by. It has a date and no time.
+The day an item should be done by.
 
 ## Overdue
 
-An item that isn't done and whose due day has passed.
+An item that isn't done and whose due has passed.
 
 ## Recurrence
 
-The repeat rule of an event: daily, weekly on chosen weekdays, monthly or yearly, every N periods, with an optional end date.
+The rule by which an event repeats.
 
 ## Occurrence
 
@@ -26,44 +26,48 @@ One dated instance of a recurring event.
 
 ## Skip
 
-Cancelling a single occurrence of a recurring event, while the rest of the series stays as it is.
+A cancelled occurrence of a recurring event.
 
 ## Project
 
-A named area of work or life, such as a freelance client or personal admin, that groups events and items.
+A named area of work or life that groups events and items.
 
-## Archived
+## Active
 
-A project marked as done. It is hidden from the project picker and the projects list, and its events and items keep it as their project.
+A project in use.
+
+## Inactive
+
+A project no longer in use.
 
 ## Unfiled
 
-An item that belongs to no project yet.
+An item that belongs to no project.
 
 ## Capture
 
-Adding an event or an item from free text. Whether it creates an event or an item is always chosen explicitly, never inferred from the text. Calendar and Tasks set it by where capture was started, and elsewhere you pick it.
+Adding an event or an item from free text.
 
 ## Today
 
-The default tab, showing the current day only: its events, the items due or done that day, and overdue items. It never shows anything upcoming from other days.
+The tab for the current day: its events, the items due or done that day, and overdue items.
 
 ## Calendar
 
-The tab for events, laid out as a timeline.
+The tab for events.
 
 ## Tasks
 
-The tab for items, laid out as a timeline.
+The tab for items.
 
 ## Timeline
 
-One continuous vertical list of days, past and future, with a horizontal day strip at the top that follows the scroll. Scrolling back on a timeline is how you look at the past.
+A continuous list of days, past and future.
 
 ## Habit
 
-A recurring event seen over time, including its streak. It is a view on a recurring event, not an entity of its own.
+A recurring event seen over time, with its streak.
 
-## Sunday review
+## Review
 
-A weekly look back over the week's events and items, broken down by project, held on Sunday.
+A look back over past events and items, broken down by project.
