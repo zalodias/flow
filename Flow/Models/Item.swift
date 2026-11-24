@@ -4,15 +4,13 @@ import SwiftData
 @Model
 final class Item {
     var title: String
-    var dueDay: Date
-    var completedAt: Date?
+    var due: Date
+    var done: Date?
     var project: Project?
 
-    var isDone: Bool { completedAt != nil }
-
-    init(title: String, dueDay: Date, project: Project? = nil) {
+    init(title: String, due: Date, project: Project? = nil) {
         self.title = title
-        self.dueDay = Calendar.current.startOfDay(for: dueDay)
+        self.due = Calendar.current.startOfDay(for: due)
         self.project = project
     }
 }

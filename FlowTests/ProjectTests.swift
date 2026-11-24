@@ -8,7 +8,7 @@ struct ProjectTests {
         let context = ModelContext(try ModelContainer(for: Project.self, configurations: ModelConfiguration(isStoredInMemoryOnly: true)))
         let project = Project(name: "Northwind")
         context.insert(Event(title: "Kickoff", start: .now, end: .now.addingTimeInterval(3600), project: project))
-        context.insert(Item(title: "Send invoice", dueDay: .now, project: project))
+        context.insert(Item(title: "Send invoice", due: .now, project: project))
         try context.save()
 
         context.delete(project)

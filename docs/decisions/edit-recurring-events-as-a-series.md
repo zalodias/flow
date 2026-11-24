@@ -6,7 +6,7 @@ Recurring events repeat daily, weekly on chosen weekdays, monthly or yearly, eve
 
 ## Decision
 
-Edits to a recurring event always apply to the whole series. A single occurrence can only be skipped, which the event stores as a list of skipped dates. Moving or changing one occurrence is left for later.
+Edits to a recurring event always apply to the whole series. A single occurrence can only be skipped, which the recurrence stores as a set of skipped dates. Moving or changing one occurrence is left for later.
 
 ## Why
 

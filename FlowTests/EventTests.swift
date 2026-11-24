@@ -36,12 +36,12 @@ struct EventTests {
         #expect(starts(of: event, from: date(11, 23), to: date(11, 30)) == [23, 25, 27, 29].map { date(11, $0, 7, 30) })
     }
 
-    @Test func weeklyEventRepeatsOnChosenWeekdays() {
+    @Test func weeklyEventRepeatsOnChosenDays() {
         let event = Event(
             title: "Padel",
             start: date(11, 23, 19, 30),
             end: date(11, 23, 21),
-            recurrence: Recurrence(frequency: .weekly, weekdays: [.monday, .thursday])
+            recurrence: Recurrence(frequency: .weekly, days: [.monday, .thursday])
         )
 
         #expect(
@@ -80,16 +80,15 @@ struct EventTests {
             title: "Run 5k",
             start: date(11, 23, 7, 30),
             end: date(11, 23, 8, 15),
-            recurrence: Recurrence(frequency: .daily)
+            recurrence: Recurrence(frequency: .daily, skip: [date(11, 24, 7, 30)])
         )
-        event.skippedDates = [date(11, 24, 7, 30)]
 
         #expect(starts(of: event, from: date(11, 23), to: date(11, 26)) == [date(11, 23, 7, 30), date(11, 25, 7, 30)])
     }
 
     @Test func recurrenceSurvivesASaveAndFetch() throws {
         let context = ModelContext(try ModelContainer(for: Event.self, configurations: ModelConfiguration(isStoredInMemoryOnly: true)))
-        let recurrence = Recurrence(frequency: .weekly, interval: 2, weekdays: [.monday, .thursday], end: date(12, 31))
+        let recurrence = Recurrence(frequency: .weekly, interval: 2, days: [.monday, .thursday], end: date(12, 31), skip: [date(12, 3, 19, 30)])
         context.insert(Event(title: "Padel", start: date(11, 23, 19, 30), end: date(11, 23, 21), recurrence: recurrence))
         try context.save()
 

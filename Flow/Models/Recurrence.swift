@@ -3,8 +3,9 @@ import Foundation
 struct Recurrence: Codable, Hashable {
     var frequency: Calendar.RecurrenceRule.Frequency
     var interval = 1
-    var weekdays: [Locale.Weekday] = []
+    var days: [Locale.Weekday] = []
     var end: Date?
+    var skip: Set<Date> = []
 
     func rule(calendar: Calendar) -> Calendar.RecurrenceRule {
         Calendar.RecurrenceRule(
@@ -12,7 +13,7 @@ struct Recurrence: Codable, Hashable {
             frequency: frequency,
             interval: interval,
             end: end.map { .afterDate($0) } ?? .never,
-            weekdays: weekdays.map { .every($0) }
+            weekdays: days.map { .every($0) }
         )
     }
 }
